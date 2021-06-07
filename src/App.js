@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FcAcceptDatabase } from 'react-icons/fc';
 
 const api = {
   key: 'ba97997bcf3c85fc91414f251a3265f9',
@@ -6,6 +7,7 @@ const api = {
 }
 
 function App() {
+
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
@@ -40,14 +42,33 @@ function App() {
           <input 
             type="text"
             className="search-bar"
-            placeholder="Search ..."
+            placeholder="Ort suchen ..."
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
             ></input>
         </div>
+
+        <div className="favoriten-box">
+          <div className="kopf">
+            Favoriten
+          </div>
+          <div className="körper">
+            <select className="auswahlbox" size="1">
+              <option>hier klicken ...</option>
+              <option>London</option>
+              <option>Madrid</option>
+              <option>Oslo</option>
+              <option>Berlin</option>
+              <option>London</option>
+              <option>Madrid</option>
+              <option>Oslo</option>
+            </select>
+          </div>
+        </div>
+
         {(typeof weather.main != 'undefined') ? (
-        <div>
+        <div className="info-box">
           <div className="location-box">
             <div className="location">{weather.name}, {weather.sys.country}</div>
             <div className="date">{dateBuilder(new Date())}</div>
@@ -60,8 +81,20 @@ function App() {
               {weather.weather[0].main}
             </div>
           </div>
+        
+          <div className="add-favorite-box">
+            <button 
+              className="add-favorite-button"
+              onClick={() => window.alert('hallo')}
+              >
+                 <FcAcceptDatabase size="15px"  /> Zu Favoriten hinzufügen
+            </button>
+          </div>
+          
         </div> 
         ) : ('')}
+
+
       </main>
     </div>
   );
