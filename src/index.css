@@ -112,8 +112,9 @@ main {
   padding-top: 35px;  
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content:center;
   /* align-items:stretch; */
+  
   
   
   
@@ -139,6 +140,7 @@ main {
   /* justify-content: space-around; */
   display:flex;
   /* align-items: center; */
+  margin-right: 4%;
   
   
 
